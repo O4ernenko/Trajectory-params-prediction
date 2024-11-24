@@ -474,14 +474,14 @@ def main():
      
     # Ввод данных пользователя
     target_body = input(
-    "Введите целевое небесное тело из списка:\n"
-    "Планеты:\n"
+    "Write target body from the list:\n"
+    "Planets:\n"
     "  mercury, venus, mars, jupiter, saturn, uranus, neptune, pluto\n"
-    "Спутники:\n"
+    "Moons:\n"
     "  moon, phobos, deimos, io, europa, ganymede, callisto, dione, rhea, titan, iapetus\n"
-    "Астероиды:\n"
+    "Asteroids:\n"
     "  ceres, pallas, juno\n"
-    "Ваш выбор: "
+    "Your choise: "
     ).strip().lower()
 
     launch_date = Time("2025-01-01", scale="tdb")
@@ -523,15 +523,15 @@ def main():
     r2_total_corrected_y_km = r2_corrected[1].value if hasattr(r2_corrected[1], 'value') else r2_corrected[1]
     r2_total_corrected_z_km = r2_corrected[2].value if hasattr(r2_corrected[2], 'value') else r2_corrected[2]
 
-    print(f"Скорректированная начальная позиция: {r1_corrected.value} км")
-    print(f"r1_total_corrected_x_km : {r1_total_corrected_x_km} км")
-    print(f"r1_total_corrected_y_km : {r1_total_corrected_y_km} км")
-    print(f"r1_total_corrected_z_km : {r1_total_corrected_z_km} км")
+    print(f"Corrected initial position: {r1_corrected.value} km")
+    print(f"r1_total_corrected_x_km : {r1_total_corrected_x_km} km")
+    print(f"r1_total_corrected_y_km : {r1_total_corrected_y_km} km")
+    print(f"r1_total_corrected_z_km : {r1_total_corrected_z_km} km")
     print("------------------------------------------------------")
-    print(f"Скорректированная конечная позиция: {r2_corrected.value} км")
-    print(f"r2_total_corrected_x_km : {r2_total_corrected_x_km} км")
-    print(f"r2_total_corrected_y_km : {r2_total_corrected_y_km} км")
-    print(f"r2_total_corrected_z_km : {r2_total_corrected_z_km} км")
+    print(f"Corrected final position: {r2_corrected.value} km")
+    print(f"r2_total_corrected_x_km : {r2_total_corrected_x_km} km")
+    print(f"r2_total_corrected_y_km : {r2_total_corrected_y_km} km")
+    print(f"r2_total_corrected_z_km : {r2_total_corrected_z_km} km")
 
     # Определение целевых переменных
     target_columns = [
@@ -637,11 +637,11 @@ def main():
     optimized_launch_date = launch_date + timedelta(days=(tof_opt - tof_days_d))
 
     # Вывод результатов
-    print("Оптимальные коррекции скоростей (v1):", v1_corr_opt)
-    print("Оптимальные коррекции скоростей (v2):", v2_corr_opt)
-    print("Оптимальное время полёта:", tof_opt, "дней")
-    print("Оптимальная характеристическая скорость (delta-v):", delta_v_opt, "км/с")
-    print(f"Оптимальная дата старта: {optimized_launch_date.strftime('%Y-%m-%d')}")
+    print("Optimal v1 correction:", v1_corr_opt)
+    print("Optimal v2 correction:", v2_corr_opt)
+    print("Optimal time of flight:", tof_opt, "days")
+    print("Optimal delta-V", delta_v_opt, "km/s")
+    print(f"Optimal launch time: {optimized_launch_date.strftime('%Y-%m-%d')}")
 
     save_predictions_to_file(predictions, v1_corr_opt, v2_corr_opt, tof_opt, delta_v_opt, optimized_launch_date)
 
