@@ -83,14 +83,12 @@
 git clone https://github.com/O4ernenko/Trajectory-params-prediction
 cd Trajectory-params-prediction
 pip install -r requirements.txt
-
-python main.py --input <path_to_input_data> --output <path_to_output_results>
 ```
 
 ---
 
 ### Инференс модели
-1. Клонируйте этот репозиторий на свой ПК и запустите файл ```optimization.py```;
+1. Клонируйте этот репозиторий на свой ПК и запустите файл ```optimization.py``` в папке ```scripts```;
 2. Вам будет предложено ввести параметры миссии;
 3. Далее будут выведены предсказанные и оптимальные характеристики перелёта и сохранены в файл ```Result_Trajectory_Parameters.txt```.
 
